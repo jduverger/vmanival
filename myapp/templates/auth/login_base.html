@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>
+{% block title %}
+{% endblock %}
+</title>
+<style type="text/css">
+body {
+	background-color:lightskyblue;
+	font-family: georgia, verdana, sans-serif; 
+	font-size: 13px; 
+	color: grey;
+	padding-top:50px;
+} 
+input {
+	background-color:#eee;
+	color:black;
+	border:1px solid black;
+}
+img {
+	border:none;
+}
+#box {
+	 background:url("{% static 'keys.jpg' %}"); 
+	 background-repeat: no-repeat; 
+	 background-position: center right;
+	 background-color: white;
+	 width:600px; 
+	 /* height:140px; */
+	 border:3px double gray; 
+	 padding:20px; 
+	 margin:auto;
+}
+</style>
+</head>
+<body>
+<span align="center">
+<div id="box">
+{% block content %}
+{% endblock %}
+</div>
+</span>
+</body>
+</html>

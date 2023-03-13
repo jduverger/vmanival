@@ -1,0 +1,6 @@
+{% load murl %}
+<form action={{blown|murl:"/blog"}} method='post'>
+{% csrf_token %}
+<button type="submit" class="butgrey"> Retour tous articles</button>
+</form>
+<br><br>

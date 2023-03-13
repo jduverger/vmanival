@@ -1,0 +1,43 @@
+{% load murl %}
+{% load afterurl %}
+{% load addid %}
+<h2><strong>Editez un article</strong></h2>
+<br>
+<!-- ------------------------------------------------------- -->
+<form id="myform" enctype="multipart/form-data" method="POST" action={{blown|murl:'/blog/insart'}}>
+{% csrf_token %}
+<input name="code_action" type="hidden" value="ZERO">
+<input name="id" type="hidden" value="{{id}}">
+<input name="who" type="hidden" value="{{entry.who}}">
+<input name="blogid" type="hidden" value="{{entry.date}}">
+<table>
+<tr><td>Date</td><td>{{entry.date}}</td>
+<td></td></tr>
+<tr><td>Auteur</td><td>{{entry.who}}</td><td></td></tr>
+<tr><td>What</td>
+<td><input name="what" type="text" value="{{entry.what}}"></td>
+<td style="color:red;">Mettez un sujet !</td>
+</tr>
+<tr><td>Thème</td>
+<td>
+<input name="thema" id="thema" value="{{entry.thema}}" list="themes"/>
+<datalist id="themes">
+{% for thema in lthema %}
+<option value={{thema}}></option>
+{% endfor %}
+</datalist>
+<td style="color:red;">et un théme !</td></tr>
+</table>
+<table>
+<tr><td>Article</td>
+<td><textarea name='content' id='wysiwyg' rows='20' cols='80'>{{entry.content}}</textarea></td></tr>
+</table>
+<br>
+<font color="blue">Insérez une photo ou un document :</font><br />
+<input id="mydoc" name="mydoc" type="file">
+<button onclick="go_imgload();">Charger l'image sur le serveur</button>
+<br>
+<font color="blue">La photo ou le lien vers le document seront placés a la suite de l''article courant au moment de l'insertion. </font>
+<br>
+<button onclick="go_register();">Enregistrer l''article</button>
+</form>

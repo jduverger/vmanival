@@ -1,0 +1,21 @@
+{% load murl %}
+{% load addid %}
+{% load mmaaaa %}
+<br>
+<strong>Sujets</strong>
+<span align="left">
+{% for title in titles %} 
+<!--
+$subject=str_replace("\"","'",$entry->what);
+compute $nbc
+-->
+<form action={{blown|murl:'/blog/detail/'|addid:title.date}} method='post'>
+{% csrf_token %}
+{{title.date|mmaaaa}} -
+<input type="submit" class="fakebutton" value="{{title.what}}" style="word-wrap:break-word; white-space:normal; text-align:left;" 
+onmouseover="this.className='btnhov'" 
+onmouseout="this.className='fakebutton'" />
+<!--$nbc-->
+</form>
+{% endfor %}
+</span>

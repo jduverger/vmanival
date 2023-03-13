@@ -1,0 +1,6 @@
+{% load murl %}
+<form action={{blown|murl:'/blog/newart'}} method='post'>
+{% csrf_token %}
+<button type="submit" class="butgrey">J'ajoute un article</button>
+</form>
+<br>
