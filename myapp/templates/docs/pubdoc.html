@@ -1,0 +1,32 @@
+{%load static %}
+<!DOCTYPE HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documents disponibles</title>
+<link rel="stylesheet" type="text/css" href="{% static 'vam/vam.css' %}">
+</head>
+<body bgcolor="LightBlue">
+<!-- <span class=home> -->
+&nbsp;&nbsp;<a href="{%url 'welcome'%}"><img src="{% static 'homeblack.png' %}"></a>
+<!-- </span> -->
+<div align="center">
+<h1>Vivre au manival</h1>
+<br>
+<h2>Documents disponibles a la lecture ou au téléchargement</h2>
+<br><br><br>
+<table border=0>
+{% for key, value in ldocs.items %}
+<tr><td><span style='font-size:x-large;'><a href="{{value}}" target=_blank>{{key}}</a></span></td></tr>
+{% endfor %}
+</table>
+</div>
+</div>
+<!--
+<br /><br /><br /><br />
+<form id="myform" method="POST" id="myform" action="/mngdocs">
+{% csrf_token %}
+<button type="submit">Gérer les documents</button>
+</form>
+-->
+</body>
+</html>

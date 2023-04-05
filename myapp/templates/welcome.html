@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site de l'association Vivre au Manival</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link href="{% static 'vam/vam.css' %}" rel='stylesheet' type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+$(document).ready(function() {
+    $('#comcount').load('/vam/blog/last');
+});
+</script>
+<style>
+body {
+    background-image: url('/static/manival_full_4.jpg');
+    background-attachment: fixed;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden;
+}
+.titre {
+    font-size: 45px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px LightGray;
+}
+</style>
+</head>
+<body>
+<br><br>
+<div align=center>
+<span class="titre"> VIVRE AU MANIVAL </span>
+<br>Association loi 1901
+</div>
+<div>
+<span class="salut">
+<a href="http://www.saint-ismier.fr/fr/association-contact/20340/vivre-manival">Contactez nous!</a>
+ <br><br>
+ <a href="/adherer">Adhérez!</a>
+</span>
+<!-- ------------------------------------- -->
+<div align="center">
+<div class="parent">
+<div class="carreblanc">
+    <div class="menu">
+    <ul>
+        <li class="item" id="mn1">
+            <a class="btn" href="#mn1"></a>
+            <a class="btn" href="/vam/blog/">Le Blog<div id="comcount" class="petitenote"></div></a>
+        </li>
+        <li class="item" id="mn2">
+        <a class="btn" href="#mn2">Le Manival</a>
+        <div class=submenu>
+            <a href="/site_mnv">___Un site remarquable</a>
+            <a href="http://www.irma-grenoble.com/05documentation/04dossiers_numero.php?id_DT=12">___Dossier IRMa</a>
+            <a href="http://www.irma-grenoble.com/PDF/05documentation/brochure/RTM_Manival.pdf">___Brochure RTM</a>
+        </div>
+        </li>
+        <li class="item" id="mn3">
+            <a class="btn" href="#mn3">Urbanisme</a>
+            <div class=submenu>
+                <a href="/vam/blogthm/PLU">___Révision du PLU</a>
+                <a href="http://www.saint-ismier.fr/fr/information/88315/plan-local-urbanisme">___PLU de St Ismier</a>
+                <a href="http://www.saint-ismier.fr/fr/information/70604/plan-prevention-risques-naturels">___Prévention des risques</a>
+                <a href="/vam/blogthm/enfouissement-réseaux">___Enfouissement des réseaux</a>
+            </div>
+        </li>
+        <li class="item" id="mn4">
+            <a class="btn" href="#mn4">Infos pratique</a>
+            <div class=submenu>
+                <a href="http://www.le-gresivaudan.fr/185-horaires-et-coordonnees-des-dechetteries.htm">___Déchetterie</a>
+                <a href="http://www.le-tichodrome.fr/">___Sauvegarde faune</a>
+                <a href="http://mto38.free.fr/">___Météo locale</a>
+                <a href="http://localiser.laposte.fr/isere/st-ismier/saint-ismier-383970">___La poste</a>
+            </div>
+        </li>
+        <li class="item" id="mn5">
+            <a class="btn" href="http://www.saint-ismier.fr/">Saint Ismier</a>
+        </li>
+        <li class="item" id="mn6">
+            <a class="btn" href="http://www.le-gresivaudan.fr/">Le Grésivaudan</a><br>
+        </li>
+        <li class="item" id="mn7">
+            <a class="btn"href="/pubdoc">Documents</a>
+        </li>
+        <li class="item" id="mn8">
+            <a class="btn" href="/mngdocs">Administration<span class="petitenote">(accés réservé)</a>
+        </li>
+        <li class="item" id="mn9">
+            <a class="btn" href="#"><img src="{% static 'arrowpointingup.png' %}"></a>
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

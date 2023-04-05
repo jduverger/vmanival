@@ -1,0 +1,70 @@
+body {
+	font-family:Georgia, serif;
+	font-size:34px;
+	margin: 72px auto;
+	font-style: italic;
+	font-weight: normal;
+	/* background-image:url({% static 'couchersoleil.jpg' %});   in template */
+	background-attachment: fixed;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size:cover;
+/*	background-color:#FC3; */
+}
+.crud {
+	font-family:Georgia, serif;
+	font-size:16px;
+	font-style: normal;
+	font-weight: normal;
+}
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+a:hover {text-decoration: none}
+.monnom {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	line-height: 46px;
+}
+.opac {
+	font-size: 28px;
+	color:black;
+	background: rgba(204, 204, 204, 0.7);
+}
+.shadow {
+	font-size: 28px;
+	color:black;
+	text-shadow:2px 2px 2px white;
+}
+.title  {
+	font-size: 30px;
+	text-shadow: 2px 2px 1px grey;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+	color:black;
+}
+.bottom {
+	text-align: center;
+	position:absolute;
+	width: 100%;
+    bottom: 10px;
+}
+.bottomright {
+    text-align: right;
+    position:absolute;
+    bottom: 10px;
+    right: 5px;
+}
+.petiteligne {
+	font-size: small;
+	line-height: 14px;
+	text-shadow: none;
+}
+.bottomleft {
+	position:absolute;
+	text-align: left;
+  	bottom:10px;
+	left: 5px;
+	font-size: 14px;
+}
+

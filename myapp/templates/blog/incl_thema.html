@@ -1,0 +1,29 @@
+{% load static %}
+{% load murl %}
+<br>
+<strong>Thèmes</strong>
+<span align="left">
+<form action={{blown|murl:'/blog'}} method='post'>
+{% csrf_token %}
+<input name="selyear" type="hidden" value="{{selyear}}">
+<input name="selthem" type="hidden" value="Tous">
+{% if selthem == "Tous" %}
+<img src="{% static 'arrowsans_16.png' %}" width='16' height='12'>
+{% endif %}
+<input type="submit" class="fakebutton" value="Tous" onmouseover="this.className='btnhov'" onmouseout="this.className='fakebutton'" />
+<!--$nbart-->
+</form>
+{% for thema,nb in lthema.items %}
+<form action={{blown|murl:'/blog'}} method='post'>
+{% csrf_token %}
+<input name="selyear" type="hidden" value="{{selyear}}">
+<input name="selthem" type="hidden" value="{{thema}}">
+{% if selthem == thema %}
+<img src="{% static 'arrowsans_16.png' %}" width='16' height='12'>
+{% endif %}
+<input type="submit" class="fakebutton" value="{{thema}}" onmouseover="this.className='btnhov'" onmouseout="this.className='fakebutton'" />
+{{nb}}
+<br>
+</form>
+{% endfor %}
+</span>

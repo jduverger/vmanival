@@ -1,0 +1,23 @@
+
+<center>
+<form action="/welcome/" method="get">
+<button type="submit" class="butgreen">&lt;&lt; Accueil &lt;&lt;</button> 
+</form>
+</center>
+<br>
+{% if not lname %}
+Bonjour <strong>Anonyme</strong> !<br>
+Connectez vous pour écrire des articles ou des commentaires.<br />
+<center>
+<form action="/login/" method="get">
+<button type="submit" class="butgrey">Connecter vous</button>
+</form>
+</center> 
+{% else %}
+Bonjour <strong>{{lname}}</strong> !<br />
+<center>
+<form action="/logout/" method="get">
+<button type="submit" class="butgreen">Déconnecter</button> 
+</form>
+</center>
+{% endif %}

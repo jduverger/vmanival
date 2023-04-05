@@ -1,0 +1,110 @@
+body {
+	/* margin: 72px auto;
+	background-image:url({% static 'couchersoleil.jpg' %});   in template */
+	background-attachment: fixed;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size:cover;
+/*	background-color:#FC3; */
+}
+.crud {
+	font-family:Georgia, serif;
+	font-size:16px;
+	font-style: normal;
+	font-weight: normal;
+}
+#notice {
+	position:absolute;
+	z-index: 9999;
+	font-size:100%;
+	width: 220px;
+	left: 10px;
+  	top: 300px;
+	padding: 20px 5px 10px 5px;
+	cursor:pointer;
+	font-size:14px;
+	font-style: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	visibility:hidden;
+	background-color:yellow;
+}
+.legende {
+	position:absolute;
+	z-index: 9999;
+	left: 10px;
+  	top: 150px;
+	text-align: center;
+	font-size:14px;
+	font-style: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+a:hover {text-decoration: none}
+.monnom {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	line-height: 46px;
+}
+.detail {font: 30px Verdana, Arial, Helvetica, sans-serif}
+.shadowmed {
+	font-size: 24px;
+	color:black;
+	text-shadow:3px 3px 3px grey;
+}
+.shadow {
+	color:black;
+	text-shadow:3px 3px 3px grey;
+}
+.style11 {
+	color:white; 
+	background-color:gray;
+	font-style: normal;
+}
+.style12 {
+	color:white; 
+	background-color:blue; 
+	font-style: normal;
+}
+.title  {
+	font-size: 30px;
+	text-shadow: 2px 2px 1px grey;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+	color:black;
+}
+h1 {
+	color: #06F;
+}
+.big {
+	font-family:Arial, sans-serif;
+	font-size:24px;
+	font-weight:bold;
+	font-style:normal;
+	background-color:#999;
+}
+.bigblack {color:black;}
+.biggreen{color:green;}
+.bigred {color:red;}
+.bigorange{color:orange;}
+.bigyellow {color:yellow;}
+.bigblue{color:blue;}
+.bottomright {
+    text-align: right;
+    position:absolute;
+    bottom: 10px;
+    right: 5px;
+}
+.petiteligne {
+	font-size: small;
+	line-height: 14px;
+	text-shadow: none;
+}
+.bottomleft {
+	position:absolute;
+	text-align: left;
+  	bottom:10px;
+	left: 5px;
+}
+

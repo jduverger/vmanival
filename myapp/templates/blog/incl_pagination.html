@@ -1,0 +1,21 @@
+{% load static %}
+{% load murl %}
+{% load decr %}
+{% load incr %}
+<div align=center>
+<strong>
+<table>
+<tr>
+<td><form action={{blown|murl:"/blog/"}}{{page|decr}} method='post'>
+{% csrf_token %}
+<input id="image" type="image" src="{% static 'L_arrow_icon.png'%}">
+</form></td>
+<td><strong>pages</strong></td>
+<td><form action={{blown|murl:"/blog/"}}{{page|incr}} method='post'>
+{% csrf_token %}
+<input id="image" type="image" src="{% static 'R_arrow_icon.png'%}">
+</form>
+</td></tr>
+</table>
+</strong>
+</div>

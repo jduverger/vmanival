@@ -1,0 +1,19 @@
+{% extends 'blog/blog_base.html' %}
+{% load static %}
+{% block style %}
+    <link href="{% static 'vam/vam.css' %}" rel='stylesheet' type="text/css" />
+{% endblock %}
+{% block top %}
+	{% include "vam/incl_top.html" %}
+{% endblock %}
+{% block left %}
+	{% include "vam/incl_lefttop.html" %}
+    <br>
+	{% include "blog/incl_welcome.html" %}
+    <br>
+    {% include "vam/incl_leftbottom.html" %}
+{% endblock %}
+{% block corps %}
+	{% include "blog/incl_backbutton.html" %}
+	{% include incl %}
+{% endblock %}

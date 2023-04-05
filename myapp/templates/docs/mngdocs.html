@@ -1,0 +1,70 @@
+{% load static %}
+{% load get_item %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Gestion des documents de l'association</title>
+<link rel="stylesheet" type="text/css" href="{% static 'boat/partagevoile.css' %}">
+</head>
+<body bgcolor="LightBlue">
+<span class=home>
+<a href="{%url 'welcome'%}"><img src="{% static 'homeblack.png' %}"></a>
+</span>
+<div align="center">
+<h2>Vivre au manival</h2>
+<br>
+<span class="bleu">Gestion des documents de l'association</span>
+<br><br><br>
+<table border=1>
+<!-- ------------------------------------------- -->
+<tr><td colspan="3">
+<form id="myform" enctype="multipart/form-data" method="POST" action="/uplpub">
+{% csrf_token %}
+Chargement des documents publics
+<input id="mydoc" name="mydoc" type="file">
+<button type="submit">Chargez !</button>
+</form>
+</td></tr>
+<tr><td><B>Document - Nom du fichier</B></td><td>Date</td><td><B>Sup</B></td></tr>
+{% for key, value in cdocs.items %}
+<tr><td><a href="{{value}}" target=_blank>{{key}}</a></td><td>{{ct|get_item:key}}</td></td>
+<td style='padding:0px;margin:0px;nowrap'>
+<form id="myform" method="POST" id="{{value}}" action="/delpub">
+{% csrf_token %}
+<input type="hidden" name="doc" value="{{key}}">
+<input type="hidden" name="raz" value="1">
+<button type="submit" style="background-color:red">X</button>
+</form>
+</td></tr>
+{% endfor %}
+</table>
+<br><br>
+<!-- ---------------------------------------------- -->
+<table border=1>
+<tr><td colspan="3">
+<form id="myform" enctype="multipart/form-data" method="POST" action="/uplpriv">
+{% csrf_token %}
+Chargement des documents privés
+<input id="mydoc" name="mydoc" type="file">
+<button type="submit">Chargez !</button>
+</form>
+</td></tr>
+<tr><td><B>Document - Nom du fichier</B></td><td>Date</td><td><B>Sup</B></td>
+</tr>
+{% for key, value in adocs.items %}
+<tr><td><a href="{{value}}" target=_blank>{{key}}</a></td><td>{{at|get_item:key}}</td>
+<td style='padding:0px;margin:0px;nowrap'>
+<form id="myform" method="POST"id="{{value}}" action="/delpriv">
+{% csrf_token %}
+<input type="hidden" name="doc" value="{{key}}">
+<input type="hidden" name="raz" value="1">
+<button type="submit" style="background-color:red" >X</button>
+</form>
+</td></tr>
+{% endfor %}
+<!-- ---------------------------------------------- -->
+</table>
+</div>
+</body>
+</html>

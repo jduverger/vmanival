@@ -1,0 +1,53 @@
+{% load murl %}
+{% load afterurl %}
+{% load addid %}
+<h2><strong>Editez un article</strong></h2>
+<br>
+<!-- ------------------------------------------------------- -->
+<form id="myform" enctype="multipart/form-data" method="POST" action={{blown|murl:'/blog/insart'}}>
+{% csrf_token %}
+<input name="code_action" type="hidden" value="ZERO">
+<input name="cursor_pos" type="hidden" value="0">
+<input name="id" type="hidden" value="{{id}}">
+<input name="who" type="hidden" value="{{entry.who}}">
+<input name="blogid" type="hidden" value="{{entry.date}}">
+<table>
+<tr><td>Date</td><td>{{entry.date}}</td>
+<td></td></tr>
+<tr><td>Auteur</td><td>{{entry.who}}</td><td></td></tr>
+<tr><td>Sujet</td>
+<td><input name="what" type="text" value="{{entry.what}}"></td>
+<td style="color:red;">Mettez un sujet !</td>
+</tr>
+<tr><td>Thème</td>
+<td>
+<input name="thema" id="thema" value="{{entry.thema}}" list="themes"/>
+<datalist id="themes">
+{% for thema in lthema %}
+<option value={{thema}}></option>
+{% endfor %}
+</datalist>
+<td style="color:red;">et un théme !</td></tr>
+</table>
+<table>
+<tr><td>Article</td>
+<td width=95%><textarea name='content' id='wysiwyg'>{{entry.content}} </textarea></td></tr>
+</table>
+<br>
+<font color="blue">Insérez une photo ou un document :</font><br />
+Position de l'image a insérer &nbsp;&nbsp;&nbsp;
+<input type="radio" name="posimg" value="imgleft">a gauche
+<input type="radio" name="posimg" checked="checked" value="imgcenter">au centre
+<input type="radio" name="posimg" value="imgright">a droite
+<br>
+<input id="mydoc" name="mydoc" type="file">
+<br><br>
+<button onclick="go_register();">Enregistrer l'article</button>
+</form>
+<br>
+<font color="blue">Aide a l'édition:</font><br>
+- Pour insérer une image ou photo:<br>
+1) sélectionnez le texte juste aprés le point d'insertion choisi (sélectionner a la souris une zone de texte de quelques mots,de préférence unique dans le texte) <span style="background-color: DodgerBlue; color: white;">et voila!</span><br>
+2) importer l'image avec le bouton "parcourir" (l'image sera alors positionnée juste avant la zone sélectionnée. Si on n'a rien sélectionné, la photo sera placée a la fin de l'article courant)<br>
+- pour importer du texte (brut ou enrichi): le copier a la source puis le coller a l'endroit choisi dans l'éditeur (au curseur) avec <font color="red">Ctrl+V</font> ou tapez le au clavier.<br>
+- Si l'on prévoit du texte et une photo côte a côte, il faut importer l'image avant le texte avec l'option gauche ou droite<br>

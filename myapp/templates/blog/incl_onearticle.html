@@ -1,0 +1,59 @@
+{% load dispddmy %}
+{% load murl %}
+{% load addid %}
+<div class="blogentry">
+<div class="arttitle">
+{{entry.date|dispddmy}} - {{entry.what}}</strong>
+<font size=1><br>Auteur {{entry.who}}</font>
+</div> <!-- arttitle -->
+<div class="records">{{entry.content|safe}}</div>
+</div> <!-- blogentry -->
+<br />
+<table><tr><td>
+<!-- if lname == entry.who -->
+{% if lname %}
+<form action={{blown|murl:'/blog/editart/'|addid:entry.date}} method='post'>
+{% csrf_token %}
+<button type=submit class="butgrey">Editer l'article</button>
+</form>
+</td>  <td>
+<form action={{blown|murl:'/blog/delart/'}} method='post'>
+{% csrf_token %}
+<input type=hidden name="blogid" value="{{blogid}}">
+<button type=submit class="butred">Effacer l'article</button>
+</form>
+{% endif %}
+</td><td>
+<!--
+<?php $murl=$entity."/blog/newcom"; ?>
+{!!Form::open(array('url'=>$murl))!!}
+{!!Form::hidden('blogid',$entry->date)!!}
+{!!Form::submit('Ajouter un commentaire')!!}
+-->
+</td></tr>
+</table>
+<br><br>
+<!--
+<?php $nbc=count($handleComments->where('blogid','=',$entry->date)->get()); ?>
+<strong>Commentaires ( $nbc )</strong><br><br>
+<br>
+@foreach($comments as $comment)
+<div class="blogentry">
+<span align="left">
+ Dispdate::fdd($comment->date)  - Login::getDisplayNameFromRecord($comment->who)
+</span>
+<br><br>
+<span class="records">
+$comment->content
+</span>
+</div>
+<br>
+<?php $murl=$entity."/blog/delcom"; ?>
+{!!Form::open(array('url'=>$murl))!!}
+{!!Form::hidden('blogid',$entry->date)!!}
+{!!Form::hidden('comid',$comment->date)!!}
+{!!Form::submit('Effacer commentaire')!!}
+{!!Form::close()!!}
+<br>
+@endforeach
+-->

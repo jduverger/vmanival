@@ -1,0 +1,28 @@
+<!--
+<Center>
+<div id=dcloud bgcolor="#CCCCCC">
+Choisissez une étiquette pour voir les photos /
+Choose a tag to see the photos<br>
+<img src="flickr_logo_gamma.gif.v1.5.14.gif" width="98" height="26">
+<br>
+<?php
+require_once("phpFlickr.php");
+$f = new phpFlickr("f08a30e14c8dd572cd882938d409defd");
+$person = $f->people_findByUsername("jackduvr");
+$userId=$person['id'];
+$tags = $f->tags_getListUserPopular($userId,250);
+foreach ((array)$tags as $tag) {
+  		if ($tag['count'] > 150)     {$cloud="cloud1";}
+		elseif ($tag['count'] >  75) {$cloud="cloud2";}
+		elseif ($tag['count'] >  50) {$cloud="cloud3";}
+		elseif ($tag['count'] >  25) {$cloud="cloud4";}
+		elseif ($tag['count'] >  10) {$cloud="cloud5";}
+		else $cloud="cloud6";
+       	echo '<a class="'.$cloud.'" href="http://www.flickr.com/photos/jackduvr/tags/'.$tag['_content'].'">'.$tag['_content'].'</a> ';
+	   	echo " ";
+	}
+?>
+    </p>
+</div>
+</center>
+-->

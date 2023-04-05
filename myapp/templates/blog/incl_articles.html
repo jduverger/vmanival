@@ -1,0 +1,26 @@
+{% load murl %}
+{% load addid %}
+{% load dispddmy %}
+{% if not nbart %}
+Pas d'articles pour les thèmes et périodes choisies.
+{% endif %}
+{% for entry in entries %}
+<div class="blogentry">
+<div class="arttitle">
+{{entry.date|dispddmy}} - <strong>{{entry.what}}</strong>
+<font size=1><br>Auteur {{entry.who}}</font>
+</div> <!-- div arttitle -->
+<div class="records">{{entry.content|safe}}</div>
+<div style="clear:both;">&nbsp;</div>
+</div> <!-- div blogentry -->
+{% if entry.who == lname or lname == "admin@vmanival" %}
+<form action={{blown|murl:'/blog/detail/'|addid:entry.date}} method='post'>
+{% csrf_token %}
+<button type="submit" class="butgrey">Modifier/effacer l'article</button>
+</form>
+{% endif %}
+<br>
+<!--
+submit('Voir les commentaires ('.$nbc.') / Ajouter un commentaire  /  Editer l\'article')
+-->
+{% endfor %}

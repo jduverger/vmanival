@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Blog</title>
+{% block style %}{% endblock %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{% static 'blog/exif.js' %}" type="text/javascript"></script>
+<!-- <script src="{% static 'tinymce/tinymce.min.js' %}"  type="text/javascript"></script> 
+<script src="{% static 'js/jquery.caret-1.5.2.min.js' %}"  type="text/javascript"></script>
+-->
+<script src="https://cdn.tiny.cloud/1/jiqz2ea7tg3p6s14dscy2n83nimqqm237dku67j62bn9ou50/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<!-- ---------------------------------------- -->
+<body>
+{% block top %}{% endblock %}
+<div id="container">
+<div id="top" align="center">{% block menu %}{% endblock %}</div>
+<div id="middle">
+<div id="leftnav">{% block left %}{% endblock %}</div>
+<div id="content">{% block corps %}{% endblock %}</div>
+</div>
+<div id="footer">{% block footer %}{% endblock %}</div>
+</div>
+<!-- --------------------------------------------------------- -->
+<script type="text/javascript">
+    
+    function go_imgload() {
+        getCursor()
+        document.getElementById("myform").code_action.value ="imgload";
+        document.getElementById("myform").submit();
+        return true;
+    };
+    function go_register() {
+        document.getElementById("myform").code_action.value ="register";
+        document.getElementById("myform").submit();
+        return true;
+    };
+    function getCursor() {
+        var selection = tinymce.activeEditor.selection.getSel();
+        selection = tinymce.activeEditor.selection.getContent({ format: "html" });
+        document.getElementById("myform").cursor_pos.value =selection;
+    };
+window.addEventListener('load', (event) => {
+        document.getElementById('mydoc').addEventListener('change', function(e) {
+        if (e.target.files[0]) { go_imgload(); } 
+        });
+        
+    tinymce.init({
+        selector: 'textarea',
+        width: '100%',
+        resize:false,
+        menubar: false,
+        statusbar: false,
+        convert_urls: false,
+        newline_behavior: 'linebreak',
+        convert_newlines_to_brs:true,
+        plugins: 'anchor autolink charmap codesample emoticons link lists media searchreplace table visualblocks visualchars wordcount code',
+        toolbar: 'code | undo redo | bold italic underline strikethrough | align | table | removeformat | visualblocks | visualchars | blocks fontfamily fontsize | emoticons charmap',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'jackduvr',
+        mergetags_list: [
+        { value: 'jackduvr', title: 'jackduvr' },
+        { value: 'jduvr@orange.fr', title: 'jduvr@orange.fr' },
+        ]
+        });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+{% load murl %}
+<hr>
+<br>
+<center>
+<form action={{blown|murl:'/blog'}} method="get">
+<button type="submit" class="butgrey">Tous critéres</button> 
+</form>
+</center>
+<strong>Années</strong>
+<span align="left">
+<form action={{blown|murl:'/blog'}} method='post'>
+{% csrf_token %}
+<input name="selyear" type="hidden" value="Tous">
+<input name="selthem" type="hidden" value={{selthem}}>
+{% if selyear == "Tous" %}
+<img src="{% static 'arrowsans_16.png' %}" width='16' height='12'>
+{% endif %}
+<input type="submit" class="fakebutton" value="Tous" onmouseover="this.className='btnhov'" onmouseout="this.className='fakebutton'" />
+<!--$nbart-->
+</form>
+{% for year,nb in lyears.items %}
+<form action={{blown|murl:'/blog'}} method='post'>
+{% csrf_token %}
+<input name="selyear" type="hidden" value="{{year}}">
+<input name="selthem" type="hidden" value="{{selthem}}">
+{% if selyear == year %}
+<img src="{% static 'arrowsans_16.png' %}" width='16' height='12'>
+{% endif %}
+<input type="submit" class="fakebutton" value="{{year}}" onmouseover="this.className='btnhov'" onmouseout="this.className='fakebutton'" />
+{{nb}}
+<br>
+</form>
+{% endfor %}
+</span>

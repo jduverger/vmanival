@@ -1,0 +1,28 @@
+{% extends 'blog/blog_base.html' %}
+{% load static %}
+{% block style %}
+    <link href="{% static 'vam/vam.css' %}" rel='stylesheet' type="text/css" />
+{% endblock %}
+{% block top %}
+	{% include "vam/incl_top.html" %}
+{% endblock %}
+{% block left %}
+	{% include "vam/incl_lefttop.html" %}
+    <br>
+	{% include 'blog/incl_leftlogin.html' %}
+    <br>
+    {% include 'blog/incl_years.html' %}
+    {% include 'blog/incl_thema.html' %}
+    {% include 'blog/incl_titles.html' %}
+    <br>
+    {% include "vam/incl_leftbottom.html" %}
+{% endblock %}
+{% block corps %}
+    {% if lname %}
+    {% include 'blog/incl_addentrybutton.html' %}
+    {% endif %}
+	{% include 'blog/incl_articles.html' %}
+    {% if selyear == "Tous" and selthem == "Tous" %}
+    {% include 'blog/incl_pagination.html' %}
+    {% endif %}
+{% endblock %}
