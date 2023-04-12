@@ -15,7 +15,7 @@ def home(request):
     if lname =="":
         return redirect('/login/')
 
-    media=os.path.join(settings.BASE_DIR,"media")
+    media=settings.MEDIA_ROOT
     path=media+"/docs/pub/"
     docs=os.listdir(path)
     cdocs={}
