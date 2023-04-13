@@ -7,9 +7,10 @@ body {
 	font-size:x-large;
 	font-weight: bold;
 	color: black;
-	/* text-shadow: 0 0 3px white; */
+	text-shadow: 0 0 3px white;
 	background-color:rgba(191, 191, 191, 0.8);
 }
+.salut a { color: black; }
 .salut a:hover {
 	text-decoration: underline;
 }
