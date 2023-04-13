@@ -80,11 +80,10 @@ ul {
 	position :relative;
 }
 .carreblanc {
-	position: absolute;
+	/* position: absolute;
 	top:20px;
 	left:150px;
-
-	/* height:100%; */
+	*/
 	background-color:rgba(191, 191, 191, 0.8);
 	padding:0px;
 	margin:0px;
@@ -92,6 +91,18 @@ ul {
 	padding-right:2px;
 	text-align:left;
 	font-size: 22px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px white;
+	color: black; 
+}
+.moto {
+	background-color:rgba(191, 191, 191, 0.8);
+	padding:0px;
+	margin:0px;
+	padding-left:2px;
+	padding-right:2px;
+	text-align:left;
+	font-size: 14px;
 	font-weight: bold;
 	text-shadow: 1px 1px 1px white;
 	color: black; 
