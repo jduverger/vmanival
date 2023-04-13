@@ -3,20 +3,23 @@ body {
 	font-size:small;
 }
 /* -------------------------------------- */
-.salut a {
+.salut {
 	font-size:x-large;
 	font-weight: bold;
 	color: black;
 	/* text-shadow: 0 0 3px white; */
 	background-color:rgba(191, 191, 191, 0.8);
-	padding:0px;
-	margin:0px;
-	padding-left:2px;
-	padding-right:2px;
-	text-align:left;
 }
 .salut a:hover {
 	text-decoration: underline;
+}
+.credit {
+	position:fixed;
+	left:50%;
+	bottom:-5px;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+	text-align:center;
 }
 hr {
     color:black;
