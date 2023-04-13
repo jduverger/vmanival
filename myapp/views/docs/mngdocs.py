@@ -43,7 +43,7 @@ def delpub(request):
     raz=request.POST.get("raz")
     doc=request.POST.get("doc")
     if raz:
-        media=os.path.join(settings.BASE_DIR,"media")
+        media=settings.MEDIA_ROOT
         os.unlink(media+"/docs/pub/"+doc)
     return redirect('/mngdocs')
 
@@ -51,20 +51,20 @@ def delpriv(request):
     raz=request.POST.get("raz")
     doc=request.POST.get("doc")
     if raz:
-        media=os.path.join(settings.BASE_DIR,"media")
+        media=settings.MEDIA_ROOT
         os.unlink(media+"/docs/priv/"+doc)
     return redirect('/mngdocs')
 
 def uplpub(request):
     myfile=request.FILES['mydoc']
-    media=os.path.join(settings.BASE_DIR,"media")
+    media=settings.MEDIA_ROOT
     fs = FileSystemStorage(location=media+'/docs/pub')
     filename = fs.save(myfile.name, myfile)
     return redirect('/mngdocs')
 
 def uplpriv(request):
     myfile=request.FILES['mydoc']
-    media=os.path.join(settings.BASE_DIR,"media")
+    media=settings.MEDIA_ROOT
     fs = FileSystemStorage(location=media+'/docs/priv')
     filename = fs.save(myfile.name, myfile)
     return redirect('/mngdocs')

@@ -6,8 +6,8 @@ body {
 .salut a {
 	font-size:x-large;
 	font-weight: bold;
-	color: coral;
-  	text-shadow: 0 0 3px black;
+	color: black;
+  	text-shadow: 0 0 3px white;
 }
 .salut a:hover {
 	text-decoration: underline;

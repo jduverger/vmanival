@@ -8,7 +8,8 @@ import os.path
 import pathlib
 
 def home(request):
-    path=os.path.join(settings.BASE_DIR,"media")+"/docs/pub"
+    media=settings.MEDIA_ROOT
+    path=media+"/docs/pub/"
     docs=os.listdir(path)
     ldocs={}
     for doc in docs:
