@@ -15,6 +15,7 @@ body {
 }
 .credit {
 	position:fixed;
+	width: 100%;
 	left:50%;
 	bottom:-5px;
 	transform: translate(-50%, -50%);
