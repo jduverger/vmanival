@@ -347,5 +347,8 @@ div#dcloud {
 	border-width: 1px;
 }
 .nwlogo a {
-	color:black
+	color:black;
+}
+.nwlogo a:hover {
+	text-decoration:none;
 }
