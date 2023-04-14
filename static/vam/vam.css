@@ -8,7 +8,6 @@ body {
 	font-weight: bold;
 	color: black;
 	text-shadow: 0 0 3px white;
-	background-color:rgba(191, 191, 191, 0.8);
 }
 .salut a { color: black; }
 .salut a:hover {
@@ -20,7 +19,7 @@ body {
 	bottom:-5px;
 	transform: translate(-50%, -50%);
 	margin: 0 auto;
-	text-align:center;
+	text-align:center;background-color:rgba(191, 191, 191, 0.8);
 }
 hr {
     color:black;
